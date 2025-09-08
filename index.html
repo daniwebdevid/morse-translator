@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Morse Translator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Optional: Add a smooth rotation effect for the swap button */
+      .rotate-180 {
+        transition: transform 0.3s ease;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 min-h-screen flex flex-col"
+  >
+    <nav
+      class="bg-gradient-to-r from-indigo-600 via-purple-700 to-pink-600 shadow-lg py-6"
+    >
+      <div class="container mx-auto px-4">
+        <h1
+          class="text-white text-4xl font-extrabold text-center tracking-wide drop-shadow-lg"
+        >
+          Morse Translator
+        </h1>
+      </div>
+    </nav>
+
+    <main
+      class="flex-grow flex flex-col items-center justify-center px-6 py-16"
+    >
+      <form
+        id="form"
+        class="bg-white bg-opacity-90 backdrop-blur-md rounded-2xl shadow-2xl p-10 max-w-lg w-full space-y-8 border border-purple-300"
+      >
+        <label
+          for="text"
+          class="block text-gray-800 font-semibold text-lg mb-3"
+        >
+          Enter Text
+        </label>
+        <input
+          type="text"
+          id="text"
+          name="text"
+          placeholder="Type text or morse code..."
+          class="w-full border border-purple-300 rounded-lg px-5 py-3 text-lg placeholder-purple-400 focus:outline-none focus:ring-4 focus:ring-purple-400 focus:border-transparent transition"
+          autocomplete="off"
+          spellcheck="false"
+        />
+
+        <div class="flex items-center gap-6">
+          <div class="flex flex-col w-1/2">
+            <label for="from" class="text-gray-700 font-medium mb-2"
+              >From</label
+            >
+            <select
+              id="from"
+              name="from"
+              class="border border-purple-300 rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-4 focus:ring-purple-400 focus:border-transparent transition"
+            >
+              <option value="latin">Latin</option>
+              <option value="morse">Morse</option>
+            </select>
+          </div>
+
+          <button
+            type="button"
+            id="swapBtn"
+            class="mt-6 p-2 rounded-full bg-purple-200 text-purple-600 hover:bg-purple-300 transition-colors duration-300"
+            aria-label="Swap translation direction"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
+              />
+            </svg>
+          </button>
+
+          <div class="flex flex-col w-1/2">
+            <label for="to" class="text-gray-700 font-medium mb-2">To</label>
+            <select
+              id="to"
+              name="to"
+              class="border border-purple-300 rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-4 focus:ring-purple-400 focus:border-transparent transition"
+            >
+              <option value="latin">Latin</option>
+              <option value="morse">Morse</option>
+            </select>
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 rounded-xl shadow-lg transition-colors duration-300"
+        >
+          Translate
+        </button>
+      </form>
+
+      <div
+        id="resultCard"
+        class="hidden mt-12 bg-white bg-opacity-90 backdrop-blur-md border border-purple-300 rounded-2xl shadow-xl p-6 max-w-lg w-full text-center space-y-4"
+      >
+        <h2 class="text-xl font-bold text-purple-700">Translation Result</h2>
+        <p id="resultText" class="text-lg text-gray-800 break-words"></p>
+      </div>
+    </main>
+
+    <footer
+      class="bg-gradient-to-r from-indigo-600 via-purple-700 to-pink-600 text-white text-center py-5 mt-auto shadow-inner"
+    >
+      © 2025 Dany dev. All rights reserved.
+    </footer>
+
+    <script src="script.js" type="text/javascript" charset="utf-8"></script>
+  </body>
+</html>
